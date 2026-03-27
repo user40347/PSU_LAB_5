@@ -1,4 +1,3 @@
-:- use_module(library(readutil)).
 :- initialization(main).
 
 main :-
@@ -6,15 +5,15 @@ main :-
 
 loop_digits :-
     repeat,
-    write('Введите натуральное число N или q для выхода: '), flush_output,
+    write('Г‚ГўГҐГ¤ГЁГІГҐ Г­Г ГІГіГ°Г Г«ГјГ­Г®ГҐ Г·ГЁГ±Г«Г® N ГЁГ«ГЁ q Г¤Г«Гї ГўГ»ГµГ®Г¤Г : '), flush_output,
     read_line_to_string(user_input, S),
     ( S == "q" ->
-        writeln('Выход из программы.'), !
+        writeln('Г‚Г»ГµГ®Г¤ ГЁГ§ ГЇГ°Г®ГЈГ°Г Г¬Г¬Г».'), !
     ; ( number_string(N, S), integer(N), N >= 0 ->
           number_codes(N, Codes),
           maplist(code_digit, Codes, Digits),
-          format('Список цифр: ~w~n', [Digits])
-      ; format('Ошибка: «~w» не является натуральным числом.~n', [S])
+          format('Г‘ГЇГЁГ±Г®ГЄ Г¶ГЁГґГ°: ~w~n', [Digits])
+      ; format('ГЋГёГЁГЎГЄГ : В«~wВ» Г­ГҐ ГїГўГ«ГїГҐГІГ±Гї Г­Г ГІГіГ°Г Г«ГјГ­Г»Г¬ Г·ГЁГ±Г«Г®Г¬.~n', [S])
       ),
       fail
     ).
